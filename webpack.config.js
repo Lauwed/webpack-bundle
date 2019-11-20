@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 let config = {
     entry: './src/index.js',
@@ -31,9 +32,15 @@ let config = {
         contentBase: path.resolve(__dirname, "./public"),
         historyApiFallback: true,
         inline: true,
-        open: true,
+        open: false,
         hot: true
     },
     devtool: 'eval-source-map'
 };
 module.exports = config;
+
+if(process.env.NODE_ENV === 'production') {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin()
+    )
+}
