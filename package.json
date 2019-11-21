@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
-    "start": "webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "start": "webpack-dashboard webpack-dev-server -d --hot --config webpack.config.js --watch",
     "dev": "webpack",
     "prod": "NODE_ENV=production webpack --progress"
   },
@@ -21,12 +21,14 @@
     "css-loader": "^3.2.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
+    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.9.0"
   }
 }
