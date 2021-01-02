@@ -5,8 +5,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js', // Get an optimiwed cache. The browser will always use the same JS file
+                                         // until the content of the file changed thus the contenthash changed.
     path: path.resolve(__dirname, 'dist')
+  },
+  // A loader helps Webpack to understand and load different kind of files
+  // The order fo the loaders is really important !
+  // They are read from right to left
+  module: {
+    rules: [
+      // For modern JS
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /[\\/]node_modules[\\/]/,
+        use: {
+          loader: 'babel-loader',
+        },
+      }
+    ]
   },
   plugins: [
     // A webpack plugin to remove/clean your build folder(s).
@@ -17,6 +33,6 @@ module.exports = {
         filename: 'index.html', // Name of the output
         inject: true, // The JS will be inject in the body of the HTML
         template: path.resolve(__dirname, 'src', 'index.html'),
-      })
+    })
   ]
 }
