@@ -1,0 +1,9 @@
+.header {
+    background-color: $white;
+    margin: 2rem clamp(10px, 15%, 800px) 0;
+    padding: 3rem 3rem 1rem;
+
+    border-radius: 3rem 3rem 0 0;
+
+    text-align: center;
+}

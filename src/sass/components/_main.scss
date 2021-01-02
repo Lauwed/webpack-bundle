@@ -1,0 +1,7 @@
+.main {
+    background-color: $white;
+    margin: 0 clamp(10px, 15%, 800px);
+    padding: 3rem;
+
+    border-radius: 0 0 3rem 3rem;
+}

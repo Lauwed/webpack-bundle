@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require("webpack-dashboard/plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -21,6 +22,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
       }
     ]
   },
@@ -33,6 +38,7 @@ module.exports = {
         filename: 'index.html', // Name of the output
         inject: true, // The JS will be inject in the body of the HTML
         template: path.resolve(__dirname, 'src', 'index.html'),
-    })
+    }),
+    new DashboardPlugin()
   ]
 }

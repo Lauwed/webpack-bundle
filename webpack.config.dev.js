@@ -23,7 +23,7 @@ module.exports = merge(commonConfig, {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
+          'sass-loader'
         ],
       },
     ]

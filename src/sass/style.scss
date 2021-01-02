@@ -1,8 +1,9 @@
-$body-color: teal;
-$text-color: #ff880d;
+// UTILS
+@import 'utils/variables';
+@import 'utils/reset';
+@import 'utils/typography';
 
-
-body {
-    background: $body-color;
-    color: $text-color;
-}
+// COMPONENTS
+@import 'components/list';
+@import 'components/header';
+@import 'components/main';
